@@ -8,7 +8,8 @@ const counterSlice = createSlice({
         INCREMENT:(state)=>{
             state.value += 1;
         },
-        DECREEMENT:(state)=>{
+        DECREMENT:(state)=>{
+            if(state.value >0)
             state.value -= 1;
         },
     }
