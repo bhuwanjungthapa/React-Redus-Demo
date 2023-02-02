@@ -22,7 +22,7 @@ function App() {
         <br/>
         <br/>
         <button onClick={()=> dispatch(asyncIncrementByOne())}>INCREMENT ASYNC</button>
-        <button onClick={()=> dispatch(asyncDecrementtByOne())}>DECREMENT ASYNC</button>
+        <button onClick={()=> dispatch(asyncDecrementtByOne(count))}>DECREMENT ASYNC</button>
 
       </div>
     </>

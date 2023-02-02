@@ -40,8 +40,8 @@ export const asyncIncrementByOne = createAsyncThunk(
 
 export const asyncDecrementtByOne = createAsyncThunk(
     'counter/decrementByOne',
-    async () => {
-        const respose = await decrementByOne();
+    async (count) => {
+        const respose = await decrementByOne(count);
         return {value: respose};
     }
 )
