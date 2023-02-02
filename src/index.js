@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import OApp from "./App";
+//import OApp from "./App";
 import App from "./RTK/App";
 
 import { Provider } from "react-redux";
