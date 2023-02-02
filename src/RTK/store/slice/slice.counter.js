@@ -12,8 +12,23 @@ const counterSlice = createSlice({
         DECREMENT:(state)=>{
             if(state.value >0)
             state.value -= 1;
-        },
-    }
+        }
+    },
+        extraReducers:(builder)=>{
+            builder
+            .addCase(asyncIncrementByOne.fulfilled,(state,action)=>{
+                state.value = action.payload.value;
+            })
+            .addCase(asyncIncrementByOne.pending,(state,action)=>{
+                state.value = "Loading...";
+            })
+            .addCase(asyncDecrementtByOne.fulfilled,(state,action)=>{
+                state.value = action.payload.value;
+            })
+            .addCase(asyncDecrementtByOne.pending,(state,action)=>{
+                state.value = "Loading...";
+            })
+        }
 });
 export const asyncIncrementByOne = createAsyncThunk(
     'counter/incrementByOne',
@@ -23,13 +38,13 @@ export const asyncIncrementByOne = createAsyncThunk(
     }
 )
 
-// export const asyncDecrementtByOne = createAsyncThunk(
-//     'counter/decrementByOne',
-//     async () => {
-//         const respose = await decrementByOne();
-//         return {value: respose};
-//     }
-// )
+export const asyncDecrementtByOne = createAsyncThunk(
+    'counter/decrementByOne',
+    async () => {
+        const respose = await decrementByOne();
+        return {value: respose};
+    }
+)
 
 export const{ INCREMENT, DECREMENT} = counterSlice.actions;
 
